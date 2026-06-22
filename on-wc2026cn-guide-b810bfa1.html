@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 世界杯 · 专题页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            background-color: #f1f3f5;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            border-bottom: 1px solid #e9ecef;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #e8edf2;
+            color: #2c3e50;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.25rem;
+            border: 1px solid #d5dbe2;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 540;
+            letter-spacing: -0.02em;
+            color: #111;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(145deg, #1f2a36, #2e4053);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        /* 卡片网格 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 3rem 0 2.5rem;
+        }
+
+        .card {
+            background: #f8f9fb;
+            border: 1px solid #e2e6ec;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 530;
+            letter-spacing: -0.01em;
+            border-left: 4px solid #3c5a7a;
+            padding-left: 0.75rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .card p {
+            color: #2d3a4a;
+            margin-bottom: 0.8rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: #36454f;
+        }
+
+        .card li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #657b96;
+        }
+
+        .faq-summary {
+            margin: 2rem 0 2.5rem;
+            padding: 1.8rem 1.8rem 1.8rem 2rem;
+            background: #f4f6f9;
+            border-radius: 24px;
+            border: 1px solid #dee4ed;
+        }
+
+        .faq-summary h3 {
+            font-weight: 520;
+            font-size: 1.2rem;
+            color: #1e2b3c;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 530;
+            color: #1b2a3f;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #2d3f4f;
+            margin: 0;
+        }
+
+        .link-bridge {
+            background: #ecf0f5;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.2rem;
+            margin: 2.2rem 0 1rem;
+            border: 1px solid #d8dfe9;
+        }
+
+        .link-bridge p {
+            font-size: 1.05rem;
+            color: #1e2d3e;
+            margin: 0;
+        }
+
+        .link-bridge a {
+            color: #1b3b5c;
+            background: #ffffff;
+            text-decoration: none;
+            font-weight: 550;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            border: 1px solid #bcc8d9;
+            transition: background 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+
+        .link-bridge a:hover {
+            background: #dce5f0;
+            border-color: #8fa4be;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5e6f82;
+            border-top: 1px solid #e4eaf1;
+            padding-top: 2rem;
+        }
+
+        .footer-note span {
+            background: #eef2f7;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+            .page {
+                padding: 1.5rem 1rem 2.5rem;
+                border-radius: 24px;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .link-bridge {
+                padding: 1.2rem 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .faq-summary {
+                padding: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero 横幅 -->
+        <div class="hero">
+            <div class="hero-badge">🔹 杂志专题 · 稳定入口</div>
+            <h1>通往 <span>2026 世界杯</span> 的简明通道</h1>
+            <p>无论你是资深球迷还是刚接触赛事，这个页面整理了关于世界杯的基本信息与可靠访问方式。内容经过梳理，力求清晰直接。</p>
+        </div>
+
+        <!-- 三段自然介绍：用卡片网格呈现 -->
+        <div class="cards-grid">
+            <div class="card">
+                <h3>赛程与背景</h3>
+                <p>2026 年世界杯将由美国、加拿大和墨西哥联合主办，这是历史上首次由三个国家共同承办。比赛将扩军至 48 支球队，赛制与以往有所不同。如果你希望跟踪官方动态或查询具体场次，一个稳定的信息入口非常重要。</p>
+                <p>许多资讯平台会实时更新，但最可靠的仍然是官方渠道。我们推荐的入口页面涵盖了赛事架构、主办城市、赛程日历等核心内容，方便快速查阅。</p>
+            </div>
+
+            <div class="card">
+                <h3>内容生态与场景</h3>
+                <p>世界杯期间，赛前分析、实时比分、球队数据、历史纪录等内容会大量涌现。不同平台提供的信息质量参差不齐，因此一个经过整理的入口能帮你节省筛选时间。</p>
+                <ul>
+                    <li>赛前了解分组、阵容、战术风格</li>
+                    <li>赛中获取实时战况、积分变化</li>
+                    <li>赛后阅读官方报告与深度解读</li>
+                    <li>收藏专题页面，避免广告和无关跳转</li>
+                </ul>
+                <p>对于需要稳定访问的球迷来说，直接使用整理好的页面更为高效。</p>
+            </div>
+        </div>
+
+        <!-- 第三段介绍：FAQ 摘要形式 -->
+        <div class="faq-summary">
+            <h3>📌 常见疑问摘要</h3>
+            <div class="faq-item">
+                <strong>为什么需要一个单独的入口页面？</strong>
+                <p>大型体育赛事期间，信息源分散且变动频繁。一个专题页面可以将最重要的链接、背景说明和注意事项集中展示，减少每次搜索的成本。这也是本页面的设计初衷。</p>
+            </div>
+            <div class="faq-item">
+                <strong>如何确认信息更新及时？</strong>
+                <p>我们推荐的 <a href="https://on-wc2026cn.com" style="color:#1b3b5c; text-decoration:underline; border-bottom:1px dotted #6f8ba8;">世界杯</a> 页面会跟随赛事筹备进展持续调整，你可以把它视为一个长期可用的书签。当然，对于官方新闻，建议同时关注 FIFA 公告。</p>
+            </div>
+            <div class="faq-item">
+                <strong>这个页面本身会变吗？</strong>
+                <p>本介绍页作为静态说明，提供的是基本背景和使用指引。核心信息始终保持一致，若有调整也会保持内容克制、不夸大。</p>
+            </div>
+        </div>
+
+        <!-- 链接桥段：自然嵌入“世界杯” -->
+        <div class="link-bridge">
+            <p>如果你希望直接进入信息页面，这里有一个整理好的链接：</p>
+            <p><a href="https://on-wc2026cn.com">世界杯</a> · 专题入口</p>
+            <p style="margin-left:0.2rem; color:#3d5168;">（页面包含赛事总览、分组动态和实用导航）</p>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <span>📋 本专题页为静态介绍 · 内容经过整理 · 建议配合浏览器书签使用</span>
+        </div>
+    </div>
+</body>
+</html>
